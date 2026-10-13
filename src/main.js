@@ -266,11 +266,9 @@ document.querySelector('#next-photo').addEventListener('click', () => showPhoto(
 dialog.addEventListener('click', event => { if (event.target === dialog) { const rect = dialog.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close(); } });
 dialog.addEventListener('keydown', event => { if (event.key === 'ArrowLeft') showPhoto(photoIndex - 1); if (event.key === 'ArrowRight') showPhoto(photoIndex + 1); });
 
+// The calendar file is static (public/julia-first-birthday.ics) so it opens in Safari, Chrome and most in-app browsers.
 document.querySelector('#calendar').addEventListener('click', () => {
-  const stamp = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-  const calendar = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Julia Elisha//Birthday Invitation//EN','CALSCALE:GREGORIAN','BEGIN:VEVENT','UID:julia-first-birthday-20261025@invitation.local',`DTSTAMP:${stamp}`,'DTSTART:20261025T033000Z','SUMMARY:Julia Elisha’s First Birthday','LOCATION:Park Marina','DESCRIPTION:Celebrate Julia Elisha Cupang-Abad turning one. Sunday October 25 at 11:30 AM (UTC+08:00).','END:VEVENT','END:VCALENDAR'].join('\r\n');
-  const url = URL.createObjectURL(new Blob([calendar], { type: 'text/calendar;charset=utf-8' }));
-  const link = document.createElement('a'); link.href = url; link.download = 'julia-first-birthday.ics'; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+  const link = document.createElement('a'); link.href = '/julia-first-birthday.ics'; link.download = 'julia-first-birthday.ics'; link.click();
 });
 function celebrate() {
   if (reducedMotion.matches) return;

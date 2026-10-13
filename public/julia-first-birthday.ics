@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Julia Elisha//First Birthday Invitation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:julia-first-birthday-20261025@juliaelisha.site
+DTSTAMP:20261013T000000Z
+DTSTART:20261025T033000Z
+SUMMARY:Julia Elisha’s First Birthday
+DESCRIPTION:Celebrate Julia Elisha Cupang-Abad turning one.\nSunday, October 25, 2026 at 11:30 AM (UTC+08:00).\nDetails: https://juliaelisha.site/
+LOCATION:Park Marina
+URL:https://juliaelisha.site/
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Julia’s first birthday tomorrow at 11:30 AM, Park Marina
+TRIGGER:-P1D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Julia’s first birthday starts at 11:30 AM, Park Marina
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+END:VCALENDAR
