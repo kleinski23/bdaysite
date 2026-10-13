@@ -10,3 +10,6 @@
 @media(prefers-reduced-motion:reduce){.story-night-backdrop{transform:none;transition:none}.dusk-sun,.dusk-orbit img{transform:none}.story-portrait{animation:none}}
 
 .dusk-clouds{display:none}.hero-edition>span:last-child{text-shadow:0 1px 5px #fff7df;background:#fff9e5b8;padding:4px 7px;margin-top:-4px}
+
+#story-night-world .story-night-backdrop{transform:scale(1.025) translate(var(--sky-x,0px),calc(var(--sky-y,0px) - var(--story-drift,0px)));}
+@media(prefers-reduced-motion:reduce){#story-night-world .story-night-backdrop{transform:none}}

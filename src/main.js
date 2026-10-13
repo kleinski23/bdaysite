@@ -216,23 +216,40 @@ window.addEventListener('pagehide',()=> { clearInterval(musicTimer); stopVoices(
 
 
 
-// Normal scrolling turns the story's pages; content stays readable without JS.
-const revealElements = document.querySelectorAll('.reveal');
-if (!reducedMotion.matches && 'IntersectionObserver' in window) {
-  document.body.classList.add('motion-ready');
-  const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } });
-  }, { threshold: .08, rootMargin: '0px 0px -30px 0px' });
+// Reveal story chapters as they enter view; keep content visible when motion is reduced.
+const revealElements = document.querySelectorAll('.reveal, .world-copy > :not(.world-sky), .story-night-layout > *, .board-heading > *, .wish-board-layout > *, .footer-quiet > *');
+let revealObserver;
+function setupScrollReveals() {
+  if (revealObserver) revealObserver.disconnect();
+  document.body.classList.toggle('motion-ready', !reducedMotion.matches && 'IntersectionObserver' in window);
+  if (reducedMotion.matches || !('IntersectionObserver' in window)) {
+    revealElements.forEach(element => element.classList.add('visible'));
+    return;
+  }
+  revealElements.forEach((element, index) => {
+    if (!element.classList.contains('reveal')) element.classList.add('scroll-reveal');
+    element.style.setProperty('--reveal-delay', `${Math.min(index % 4, 3) * 90}ms`);
+  });
+  revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); }
+    });
+  }, { threshold: .1, rootMargin: '0px 0px -45px 0px' });
   revealElements.forEach(element => revealObserver.observe(element));
 }
-reducedMotion.addEventListener('change', event => { if (event.matches) document.body.classList.remove('motion-ready'); });
+setupScrollReveals();
+reducedMotion.addEventListener('change', setupScrollReveals);
 let scrollScheduled = false;
 function updateScrollStory() {
   scrollScheduled = false;
   const range = document.documentElement.scrollHeight - window.innerHeight;
   const progress = range > 0 ? window.scrollY / range : 0;
   document.querySelector('#reading-progress').style.transform = 'scaleX(' + Math.min(1, Math.max(0, progress)) + ')';
-  if (!reducedMotion.matches) { document.querySelector('#dreamscape').style.setProperty('--parallax', Math.min(window.scrollY * .022, 15) + 'px'); document.querySelector('#home').style.setProperty('--world-scroll', Math.min(window.scrollY*.035,26)+'px'); }
+  if (!reducedMotion.matches) {
+    document.querySelector('#dreamscape').style.setProperty('--parallax', Math.min(window.scrollY * .022, 15) + 'px');
+    document.querySelector('#home').style.setProperty('--world-scroll', Math.min(window.scrollY*.035,26)+'px');
+    document.querySelector('#story-night-world')?.style.setProperty('--story-drift', `${Math.min(window.scrollY * .012, 18)}px`);
+  }
   const sections = ['story','celebration','wishes'];
   let current = '';
   for (const id of sections) if (document.getElementById(id).getBoundingClientRect().top <= window.innerHeight * .4) current = id;
