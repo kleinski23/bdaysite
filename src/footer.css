@@ -1,0 +1,28 @@
+/* Footer — one quiet, centered column that flows out of the slumbook */
+footer.site-footer{border-top:0;color:#5f6d50;background:linear-gradient(#f4f3ea00,#f4f3ea 55%) 0 0/100% 100%,repeating-linear-gradient(90deg,#96a97913 0 22px,transparent 22px 44px) 0 0/22px 22px,repeating-linear-gradient(0deg,#96a97913 0 22px,transparent 22px 44px) 0 0/22px 22px,#e9ecdc}
+.footer-quiet{display:flex;flex-direction:column;align-items:center;text-align:center;padding:72px 0 40px}
+.footer-sprig{display:flex;align-items:center;gap:14px;color:#b59a6a;font-size:11px}
+.footer-sprig i{display:block;width:56px;height:1px;background:linear-gradient(90deg,transparent,#c8b98f)}
+.footer-sprig i:last-child{transform:scaleX(-1)}
+.footer-mark{display:block;margin-top:26px;transition:opacity .3s}
+.footer-mark img{display:block;width:210px;height:auto}
+.footer-mark:hover{opacity:.8}
+.footer-line{font:400 17px/1.6 'Fraunces';color:#4e5c42;margin-top:16px}
+.footer-line em{font-style:italic;color:#7d8a6a}
+.footer-links{position:static;inset:auto;transform:none;background:none;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 30px;margin-top:30px;font:600 12px 'Manrope';letter-spacing:.3px}
+.footer-links a{color:#5f6d50;padding:6px 0;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .35s,color .3s}
+.footer-links a:hover,.footer-links a:focus-visible{background-size:100% 1px;color:#3e4a33}
+.footer-top{display:inline-flex;align-items:center;gap:6px}
+.footer-top svg{width:13px;height:13px;transform:rotate(-45deg)}
+.footer-fine{margin-top:44px;padding-top:22px;border-top:1px solid #dcdcc8;width:min(520px,100%);font:500 11px 'Manrope';letter-spacing:1px;color:#8a947a}
+.footer-fine span{white-space:nowrap}
+.footer-fine b{font-weight:400;margin:0 10px;color:#b59a6a}
+@media(max-width:600px){
+  .footer-quiet{padding:56px 0 32px}
+  .footer-mark img{width:180px}
+  .footer-line{font-size:15px;max-width:290px}
+  .footer-links{gap:4px 22px;font-size:12px;max-width:300px}
+  .footer-fine{font-size:10px;line-height:2}
+  .footer-fine>span{display:block}
+  .footer-fine>b{display:none}
+}

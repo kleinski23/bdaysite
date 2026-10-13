@@ -1,0 +1,94 @@
+/* A Day in Her Little World — one illustrated day: the sun walks an arc past four real moments */
+.dusk-journey.little-world{min-height:0;padding:115px 0 190px;background:linear-gradient(180deg,#fcf8f5 0%,#f7e6d6 9%,#eecbb6 19%,#c9a1ad 30%,#8a7c9c 42%,#4d5f82 55%,#24405d 70%,#112a40 85%,#071e2b 100%)}
+.little-world:before{display:none}
+
+/* crisp vector sky */
+.world-sky{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.world-stars{position:absolute;inset:40% 0 0;opacity:calc(.3 + var(--dusk-progress,0)*.7);background-image:radial-gradient(1.4px 1.4px at 7% 22%,#fff6df,transparent),radial-gradient(1.2px 1.2px at 18% 48%,#fff6df,transparent),radial-gradient(1.8px 1.8px at 29% 14%,#ffeec4,transparent),radial-gradient(1.1px 1.1px at 41% 39%,#fff,transparent),radial-gradient(1.6px 1.6px at 55% 20%,#fff6df,transparent),radial-gradient(1.2px 1.2px at 64% 52%,#fff,transparent),radial-gradient(1.9px 1.9px at 76% 28%,#ffeec4,transparent),radial-gradient(1.2px 1.2px at 88% 44%,#fff6df,transparent),radial-gradient(1.4px 1.4px at 95% 16%,#fff,transparent);mask-image:linear-gradient(transparent,#000 30%,#000 80%,transparent)}
+.world-stars-fine{inset:48% 0 0;background-image:radial-gradient(.9px .9px,#ffffffb0,transparent);background-size:47px 53px;animation:world-twinkle 5s ease-in-out infinite alternate}
+@keyframes world-twinkle{from{opacity:calc(var(--dusk-progress,0)*.35)}to{opacity:calc(var(--dusk-progress,0)*.8)}}
+.world-hills{position:absolute;left:0;right:0;bottom:0;width:100%;height:240px}
+.hill-far{fill:#1d3a52;opacity:.55}.hill-mid{fill:#11293d;opacity:.8}.hill-near{fill:#071e2b}
+
+/* heading */
+.world-copy{position:relative;z-index:2;text-align:center;max-width:1120px}
+.world-copy .eyebrow{justify-content:center;color:#5a5048;font:600 10px 'Manrope';letter-spacing:2.2px}
+.world-copy h2{font:400 50px/1.2 'Fraunces';color:#2f3f48;margin-top:14px}
+.world-copy h2 em{color:#7a4f5e;font-style:italic}
+.world-lede{font:15px/1.85 'Manrope';color:#4a4f57;max-width:600px;margin:22px auto 0}
+.world-event{display:inline-flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 20px;margin:30px auto 0;padding:11px 12px 11px 24px;border-radius:40px;background:#fffaf2c7;border:1px solid #fff;box-shadow:0 14px 35px #5d3f4a24;backdrop-filter:blur(8px);font:600 11px 'Manrope';letter-spacing:.6px;color:#4b3b45}
+.world-event span{display:inline-flex;align-items:center;gap:7px}
+.world-event span+span:before{content:'';width:3px;height:3px;border-radius:50%;background:#b98ea0;margin-right:13px}
+.world-event svg{width:14px;height:14px;color:#9a6a7f}
+.world-event strong{font:600 11px 'Manrope';letter-spacing:.8px;background:#4f3346;color:#fff4e3;padding:8px 15px;border-radius:30px}
+
+/* the day dial */
+.day-dial{position:relative;margin:70px auto 0;max-width:1000px}
+.dial-stage{position:relative;width:100%;aspect-ratio:1000/320;margin-bottom:150px}
+.dial-glow{position:absolute;left:var(--sun-x,4%);top:var(--sun-y,94%);width:520px;height:520px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#ffe2a85c,#ffc79a1f 40%,transparent 68%);transition:background 1s;pointer-events:none}
+.day-dial[data-time="night"] .dial-glow{background:radial-gradient(circle,#e6ecff40,#b9c8ff14 40%,transparent 68%)}
+.dial-arc{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.dial-track{fill:none;stroke:#fff3dc;stroke-opacity:.5;stroke-width:1.5;stroke-dasharray:2 9;stroke-linecap:round}
+.dial-lit{fill:none;stroke:url(#dial-lit-gradient);stroke-width:3;stroke-linecap:round;filter:drop-shadow(0 0 6px #ffd98a99);stroke-dasharray:0 2000}
+.dial-sun{fill:#fff1c2;transition:opacity .8s}
+.dial-sun-halo{fill:#ffd98a;opacity:.35;filter:blur(8px);transition:fill .8s}
+.dial-moon{fill:#fff4d8;opacity:0;transition:opacity .8s}
+.day-dial[data-time="night"] .dial-sun{opacity:0}
+.day-dial[data-time="night"] .dial-moon{opacity:1}
+.day-dial[data-time="night"] .dial-sun-halo{fill:#e6ecff}
+
+.day-moments{list-style:none;margin:0;padding:0}
+.day-moment{position:absolute;width:210px;transform:translate(-50%,-64px);display:flex;flex-direction:column;align-items:center;text-align:center;color:#fff2dc}
+.day-moment:nth-child(1){left:17.8%;top:68%}.day-moment:nth-child(2){left:39%;top:47%}.day-moment:nth-child(3){left:61%;top:47%}.day-moment:nth-child(4){left:82.2%;top:68%}
+.moment-photo{position:relative;width:128px;height:128px;padding:0;border:0;border-radius:50%;background:none;cursor:zoom-in;transform:scale(.86);filter:saturate(.35) brightness(.8);transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .7s}
+.moment-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;border-radius:50%;border:4px solid #fff7ea;box-shadow:0 18px 40px #0a1a2a59}
+.moment-ring{position:absolute;inset:-9px;border-radius:50%;border:1.5px dashed #fff3dc80;transition:border-color .7s,box-shadow .7s,transform 1.2s}
+.day-moment.is-lit .moment-photo{transform:scale(1);filter:none}
+.day-moment.is-lit .moment-ring{border:1.5px solid #ffd98a;box-shadow:0 0 28px #ffd98a80;transform:rotate(25deg)}
+.day-moment:nth-child(4).is-lit .moment-ring{border-color:#e6ecff;box-shadow:0 0 28px #c9d6ff88}
+.day-moment .moment-photo:hover{transform:scale(1.06)}
+.moment-photo:focus-visible{outline:2px solid #ffe7b8;outline-offset:12px}
+.moment-time{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font:700 9px 'Manrope';letter-spacing:1.8px;color:#ffe0b0;opacity:.6;transition:opacity .7s}
+.moment-time svg{width:13px;height:13px}
+.day-moment strong{font:400 23px/1.2 'Fraunces';color:#fff6e6;margin-top:6px;text-shadow:0 2px 14px #0b1a2a80}
+.moment-line{font:13px/1.6 'Manrope';color:#e3e6ea;margin-top:6px;max-width:190px;opacity:.55;transition:opacity .7s;text-shadow:0 1px 8px #0b1a2a99}
+.day-moment.is-lit .moment-time,.day-moment.is-lit .moment-line{opacity:1}
+
+.dial-outro{font:italic 400 22px/1.4 'Fraunces';color:#e9e2d6;margin-top:10px}
+.dial-outro em{color:#ffd98a}
+.world-next{margin-top:22px;color:#fff2d4;font:600 12px 'Manrope';letter-spacing:.5px;display:inline-flex;align-items:center;gap:12px}
+.world-next svg{width:15px;animation:world-bob 2.2s ease-in-out infinite}
+@keyframes world-bob{50%{transform:translateY(4px)}}
+
+@media(max-width:1100px){.world-copy h2{font-size:44px}.day-moment{width:180px;transform:translate(-50%,-56px)}.moment-photo{width:112px;height:112px}}
+
+/* phones and tablets: the arc becomes a vertical day line */
+@media(max-width:900px){
+  .dusk-journey.little-world{padding:100px 0 170px;background:linear-gradient(180deg,#fcf8f5 0%,#f7e6d6 6%,#eecbb6 13%,#c9a1ad 21%,#8a7c9c 30%,#4d5f82 42%,#24405d 60%,#112a40 80%,#071e2b 100%)}
+  .day-dial{margin-top:56px;max-width:460px}
+  .dial-stage{aspect-ratio:auto;margin-bottom:40px}
+  .dial-arc,.dial-glow{display:none}
+  .dial-stage:before{content:'';position:absolute;left:47px;top:10px;bottom:10px;width:2px;border-radius:2px;background:linear-gradient(#ffd98a,#f3a98c 60%,#e6ecff) 0 0/100% calc(var(--day,0)*100%) no-repeat,#fff3dc33}
+  .day-moments{display:grid;gap:34px}
+  .day-moment{position:relative;left:auto!important;top:auto!important;transform:none;width:auto;display:grid;grid-template-columns:96px 1fr;column-gap:20px;align-items:center;text-align:left}
+  .moment-photo{width:96px;height:96px;grid-row:1/4}
+  .moment-ring{inset:-7px}
+  .moment-time{margin-top:0}
+  .day-moment strong{font-size:22px;margin-top:4px}
+  .moment-line{max-width:none;margin-top:4px}
+}
+@media(max-width:600px){
+  .world-copy h2{font-size:34px}.world-copy h2 br{display:none}
+  .world-copy .eyebrow{font-size:9px;letter-spacing:1.5px}
+  .world-lede{font-size:14px}.world-lede br{display:none}
+  .world-event{border-radius:22px;padding:14px 16px;gap:8px 14px;font-size:10px}
+  .world-event span+span:before{display:none}
+  .world-event strong{flex-basis:100%;text-align:center}
+  .day-moment{grid-template-columns:84px 1fr;column-gap:18px}
+  .moment-photo{width:84px;height:84px}
+  .dial-stage:before{left:41px}
+  .day-moment strong{font-size:20px}
+  .dial-outro{font-size:19px}
+  .world-hills{height:170px}
+}
+@media(prefers-reduced-motion:reduce){.world-stars-fine,.world-next svg{animation:none}.moment-photo,.moment-ring,.moment-time,.moment-line,.dial-sun,.dial-moon{transition:none}}

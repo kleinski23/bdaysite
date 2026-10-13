@@ -1,0 +1,73 @@
+/* Hero upgrade — one clear story column, a live party ticket, and a hunt for four hidden surprises */
+#home .hero-v2{max-width:540px;text-align:left}
+#home .hero-badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 12px;border-radius:30px;background:#fffdf6c9;border:1px solid #fff;box-shadow:0 8px 22px #6d5a3a14;backdrop-filter:blur(6px);font:700 10px 'Manrope';letter-spacing:1.6px;text-transform:uppercase;color:#4f6142;margin:0 0 6px}
+#home .badge-pulse{position:relative;width:8px;height:8px;border-radius:50%;background:#e39b6f}
+#home .badge-pulse:after{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid #e39b6f;animation:badge-ping 1.8s ease-out infinite}
+@keyframes badge-ping{from{transform:scale(.6);opacity:1}to{transform:scale(1.8);opacity:0}}
+#home .hero-v2 .hero-name{margin-top:6px}
+#home .hero-tagline{font:400 25px/1.35 'Fraunces',Georgia,serif;color:#46583c;margin:18px 0 0;max-width:470px}
+#home .hero-tagline em{display:block;font-style:italic;color:#a46a4c}
+#home .hero-v2 .intro{font:400 14px/1.8 'Manrope',sans-serif;color:#55634b;margin:12px 0 0;max-width:430px}
+
+/* the party ticket */
+#home .hero-ticket{margin-top:26px;border-radius:22px;background:#fffdf6e0;border:1px solid #fff;box-shadow:0 22px 48px #5e4b2f1f,0 2px 0 #ffffff inset;backdrop-filter:blur(10px);overflow:hidden;max-width:500px}
+#home .ticket-details{display:grid;grid-template-columns:1fr 1fr 1.15fr}
+#home .ticket-item{display:flex;flex-direction:column;gap:3px;padding:17px 18px 15px}
+#home .ticket-item+.ticket-item{border-left:1px solid #ece4d2}
+#home .ticket-label{display:inline-flex;align-items:center;gap:6px;font:700 9px 'Manrope';letter-spacing:1.5px;text-transform:uppercase;color:#a07b5c}
+#home .ticket-label svg{width:12px;height:12px}
+#home .ticket-item strong{font:500 19px/1.25 'Fraunces',Georgia,serif;color:#33452f;margin-top:4px}
+#home .ticket-item small{font:500 11px 'Manrope';color:#8a9180}
+#home .ticket-item a{display:inline-flex;align-items:center;gap:4px;font:700 11px 'Manrope';color:#4d6a3f;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#4d6a3f66;width:max-content}
+#home .ticket-item a:hover{color:#a46a4c}
+#home .ticket-item a svg{width:12px;height:12px}
+#home .ticket-countdown{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-top:1.5px dashed #e3d7bd;background:linear-gradient(90deg,#f5efdf88,#fbe9dc88)}
+#home .hero-count{display:flex;gap:14px}
+#home .hero-count span{display:flex;align-items:baseline;gap:3px}
+#home .hero-count b{font:500 24px/1 'Fraunces',Georgia,serif;color:#33452f;font-variant-numeric:tabular-nums;min-width:1.25em;text-align:right}
+#home .hero-count small{font:600 10px 'Manrope';color:#8a9180}
+#home .hero-count span:last-child b{color:#c07a55}
+
+#home .hero-v2 .hero-actions{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;gap:12px;margin:22px 0 0}
+#home .hero-v2 .button.primary{display:inline-flex;align-items:center;gap:10px}
+#home .hero-v2 .button.primary svg{width:16px;height:16px}
+#home .hero-ghost{display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:0 20px;border-radius:30px;border:1px solid #c9d0b8;background:#fffdf699;color:#3e573d;font:700 12px 'Manrope';cursor:pointer;transition:background .3s,border-color .3s,transform .3s}
+#home .hero-ghost svg{width:15px;height:15px}
+#home .hero-ghost:hover{background:#fff;border-color:#a46a4c;color:#a46a4c;transform:translateY(-2px)}
+
+/* pop-up-book depth */
+#home .dreamscape .sky-cloud{translate:calc(var(--px,0)*-22px) calc(var(--py,0)*-10px)}
+#home .dreamscape .balloon-control,#home .dreamscape .day-hotair{translate:calc(var(--px,0)*-30px) calc(var(--py,0)*-16px)}
+#home .dreamscape .julia-control{translate:calc(var(--px,0)*10px) calc(var(--py,0)*6px)}
+#home .dreamscape .day-gifts,#home .dreamscape .birthday-keepsake{translate:calc(var(--px,0)*20px) calc(var(--py,0)*10px)}
+#home .dreamscape .sky-cloud,#home .dreamscape .balloon-control,#home .dreamscape .day-hotair,#home .dreamscape .julia-control,#home .dreamscape .day-gifts,#home .dreamscape .birthday-keepsake{transition:translate .5s cubic-bezier(.2,.7,.2,1),scale .3s}
+
+/* scroll cue */
+#home .hero-scroll{display:inline-flex;align-items:center;gap:12px;font:600 11px 'Manrope';letter-spacing:.4px;color:#4f6142}
+#home .scroll-mouse{display:block;width:18px;height:28px;border:1.5px solid currentColor;border-radius:10px;position:relative;opacity:.8}
+#home .scroll-mouse i{position:absolute;left:50%;top:6px;width:2px;height:6px;margin-left:-1px;border-radius:2px;background:currentColor;animation:scroll-wheel 1.8s ease-in-out infinite}
+@keyframes scroll-wheel{0%{opacity:0;transform:translateY(-2px)}40%{opacity:1}100%{opacity:0;transform:translateY(8px)}}
+
+@media(max-width:800px){
+  #home .hero-v2{margin-inline:auto;text-align:center;max-width:520px}
+  #home .hero-v2 .hero-name img{margin-inline:auto}
+  #home .hero-tagline,#home .hero-v2 .intro,#home .hero-ticket{margin-inline:auto}
+  #home .hero-v2 .hero-actions{justify-content:center}
+  #home .ticket-item{text-align:left}
+}
+@media(max-width:600px){
+  #home .hero-badge{font-size:9px;letter-spacing:1.2px}
+  #home .hero-tagline{font-size:20px}
+  #home .hero-v2 .intro{font-size:13px}
+  #home .ticket-details{grid-template-columns:1fr 1fr}
+  #home .ticket-item{padding:14px 14px 12px}
+  #home .ticket-item:nth-child(3){grid-column:1/-1;border-left:0;border-top:1px solid #ece4d2;flex-direction:row;flex-wrap:wrap;align-items:baseline;column-gap:12px}
+  #home .ticket-item:nth-child(3) .ticket-label{flex-basis:100%}
+  #home .ticket-item strong{font-size:17px}
+  #home .ticket-countdown{flex-direction:column;gap:8px;padding:13px 14px}
+  #home .hero-count{gap:12px}
+  #home .hero-count b{font-size:22px}
+  #home .hero-v2 .hero-actions>*{flex:1 1 100%;justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){#home .badge-pulse:after,#home .scroll-mouse i{animation:none!important}}
+@media(pointer:coarse){#home .scroll-mouse{display:none}}

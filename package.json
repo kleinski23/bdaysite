@@ -1,0 +1,27 @@
+{
+  "name": "bdaysite",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "assets:optimize": "node scripts/optimize-assets.mjs",
+    "start": "node --env-file-if-exists=.env.local server.mjs",
+    "wishes": "node --env-file-if-exists=.env.local scripts/wishes.mjs"
+  },
+  "license": "ISC",
+  "description": "Julia Elisha's first birthday invitation website",
+  "dependencies": {
+    "@vercel/blob": "^2.8.1",
+    "lucide": "^1.55.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5",
+    "vite": "^8.3.4"
+  },
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22.9.0"
+  }
+}

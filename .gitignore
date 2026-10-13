@@ -1,0 +1,22 @@
+# Dependencies and build output
+node_modules/
+dist/
+
+# Local data and secrets (wishes live in Vercel Blob; data/ is the local-dev fallback)
+data/
+backups/
+.env
+.env.*
+!.env.example
+.vercel/
+
+# Large originals and local-only working files (kept on this computer, not in the repo)
+assets-src/
+_local/
+.claude/
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
